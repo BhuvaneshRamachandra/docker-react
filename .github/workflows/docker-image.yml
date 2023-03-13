@@ -15,4 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile.dev --tag react-test:$(date +%s)
+      run: docker build . --file Dockerfile.dev --tag 040591/react-test
+    - run: docker run -e CI=true 040591/react-test npm run test
+      
